@@ -23,6 +23,7 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
 
   constructor() {
+    super();
     this.state = {
       zip: ''
     };
