@@ -52,20 +52,22 @@ export default class App extends Component<{}> {
         <Image source={require('./flowers.png')}
           resizeMode='cover'
           style={styles.backdrop}>
+          <View style={styles.overlay}>
 
-          <Text style={styles.welcome}>
-            You input {this.state.zip}.
-          </Text>
-          {/* Weather forecast */}
-          <Forecast
-            main={this.state.forecast.main}
-            description={this.state.forecast.description}
-            temp={this.state.forecast.temp} />
-          {/* Enter zip code. */}
-          <TextInput
-            style={styles.input}
-            returnKeyType='go'
-            onSubmitEditing={this._handleTextChange} />
+            <Text style={styles.welcome}>
+              You input {this.state.zip}.
+            </Text>
+            {/* Weather forecast */}
+            <Forecast
+              main={this.state.forecast.main}
+              description={this.state.forecast.description}
+              temp={this.state.forecast.temp} />
+            {/* Enter zip code. */}
+            <TextInput
+              style={styles.input}
+              returnKeyType='go'
+              onSubmitEditing={this._handleTextChange} />
+          </View>
         </Image>
       </View>
     );
@@ -83,6 +85,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#4D4D4D',
+  },
+  overlay: {
+    paddingTop: 5,
+    backgroundColor: 'black',
+    opacity: 0.5,
+    alignItems: 'center',
   },
   welcome: {
     fontSize: 20,
