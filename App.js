@@ -9,6 +9,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 
@@ -27,12 +28,22 @@ export default class App extends Component<{}> {
     };
   }
 
+  // Set the state from entered zip code.
+  _handleTextChange(event) {
+    console.log(event.nativeEvent.text);
+    this.setState({zip: event.nativeEvent.text});
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          You input {this.state.zip}.
         </Text>
+        {/* Enter zip code. */}
+        <TextInput
+          style={styles.input}
+          onSubmitEditing={this._handleTextChange} />
         <Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
@@ -61,4 +72,10 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  // TextInput to enter the zip code.
+  input: {
+    fontSize: 20,
+    borderWidth: 2,
+    height: 40
+  }
 });
