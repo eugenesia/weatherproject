@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   // Background image.
   backdrop: {
     flex: 1,
+    flexDirection: 'column',
   },
   container: {
     flex: 1,
@@ -91,7 +92,6 @@ const styles = StyleSheet.create({
   },
   // TextInput to enter the zip code.
   input: {
-    alignSelf: 'stretch',
     borderWidth: 2,
     fontSize: 20,
     height: 40,
