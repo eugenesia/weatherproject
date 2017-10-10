@@ -52,13 +52,16 @@ export default class App extends Component<{}> {
           You input {this.state.zip}.
         </Text>
         {/* Weather forecast */}
+        {/*
         <Forecast
           main={this.state.forecast.main}
           description={this.state.forecast.description}
           temp={this.state.forecast.temp} />
+        */}
         {/* Enter zip code. */}
         <TextInput
           style={styles.input}
+          returnKeyType='go'
           onSubmitEditing={this._handleTextChange} />
       </View>
     );
@@ -70,18 +73,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#4D4D4D',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: '#FFFFFF'
   },
   // TextInput to enter the zip code.
   input: {
-    fontSize: 20,
+    alignSelf: 'stretch',
     borderWidth: 2,
-    height: 40
+    fontSize: 20,
+    height: 40,
+    color: '#FFFFFF'
   }
 });
 
