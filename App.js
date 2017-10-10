@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+  Image,
   Platform,
   StyleSheet,
   Text,
@@ -48,25 +49,34 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          You input {this.state.zip}.
-        </Text>
-        {/* Weather forecast */}
-        <Forecast
-          main={this.state.forecast.main}
-          description={this.state.forecast.description}
-          temp={this.state.forecast.temp} />
-        {/* Enter zip code. */}
-        <TextInput
-          style={styles.input}
-          returnKeyType='go'
-          onSubmitEditing={this._handleTextChange} />
+        <Image source={require('./flowers.png')}
+          resizeMode='cover'
+          style={styles.backdrop}>
+
+          <Text style={styles.welcome}>
+            You input {this.state.zip}.
+          </Text>
+          {/* Weather forecast */}
+          <Forecast
+            main={this.state.forecast.main}
+            description={this.state.forecast.description}
+            temp={this.state.forecast.temp} />
+          {/* Enter zip code. */}
+          <TextInput
+            style={styles.input}
+            returnKeyType='go'
+            onSubmitEditing={this._handleTextChange} />
+        </Image>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  // Background image.
+  backdrop: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -86,6 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     height: 40,
     color: '#FFFFFF',
+    textAlign: 'center',
   }
 });
 
