@@ -20,6 +20,13 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+
+  constructor() {
+    this.state = {
+      zip: ''
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
