@@ -27,6 +27,7 @@ export default class App extends Component<{}> {
     this.state = {
       zip: ''
     };
+    this._handleTextChange = this._handleTextChange.bind(this);
   }
 
   // Set the state from entered zip code.
