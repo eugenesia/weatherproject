@@ -11,7 +11,7 @@ import {
 export default class Forecast extends Component<{}> {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.bigText}>
           {this.props.main}
         </Text>
@@ -27,6 +27,9 @@ export default class Forecast extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   bigText: {
     flex: 2,
     fontSize: 20,

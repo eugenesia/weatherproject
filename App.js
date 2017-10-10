@@ -52,12 +52,10 @@ export default class App extends Component<{}> {
           You input {this.state.zip}.
         </Text>
         {/* Weather forecast */}
-        {/*
         <Forecast
           main={this.state.forecast.main}
           description={this.state.forecast.description}
           temp={this.state.forecast.temp} />
-        */}
         {/* Enter zip code. */}
         <TextInput
           style={styles.input}
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
   // TextInput to enter the zip code.
   input: {
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     fontSize: 20,
     height: 40,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   }
 });
 
