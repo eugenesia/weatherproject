@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 30,
+    paddingTop: 0,
   },
   // Background image.
   backdrop: {
