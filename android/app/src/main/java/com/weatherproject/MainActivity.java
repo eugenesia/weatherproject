@@ -1,4 +1,4 @@
-package com.weatherproject;
+package net.eugenesia.weatherproject;
 
 import com.facebook.react.ReactActivity;
 
