@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import Forecast from './Forecast';
+import config from './config';
 
 
 export default class App extends Component<{}> {
@@ -35,8 +36,31 @@ export default class App extends Component<{}> {
 
   // Set the state from entered zip code.
   _handleTextChange(event) {
-    console.log(event.nativeEvent.text);
-    this.setState({zip: event.nativeEvent.text});
+    const zip = event.nativeEvent.text;
+    this.setState({zip: zip});
+
+    // Full URL for OpenWeatherMap API with params.
+    const url = 'http://api.openweathermap.org/data/2.5/weather?'
+      + 'q=' + zip
+      + '&units=imperial'
+      + '&appid=' + config.openWeatherMapApiKey;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(responseJSON => {
+        // Take a look at the format.
+        console.log(responseJSON);
+        this.setState({
+          forecast: {
+            main: responseJSON.weather[0].main,
+            description: responseJSON.weather[0].description,
+            temp: responseJSON.main.temp,
+          },
+        });
+      })
+      .catch(error => {
+        console.warn(error);
+      });
   }
 
   render() {

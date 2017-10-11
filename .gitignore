@@ -1,3 +1,6 @@
+# Sensitive configs
+/config.js
+
 # OSX
 #
 .DS_Store
