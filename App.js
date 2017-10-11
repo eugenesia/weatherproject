@@ -42,7 +42,7 @@ export default class App extends Component<{}> {
     // Full URL for OpenWeatherMap API with params.
     const url = 'http://api.openweathermap.org/data/2.5/weather?'
       + 'q=' + zip
-      + '&units=imperial'
+      + '&units=metric'
       + '&appid=' + config.openWeatherMapApiKey;
 
     fetch(url)
