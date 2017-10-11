@@ -29,19 +29,21 @@ export default class Forecast extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bigText: {
     flex: 2,
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
   mainText: {
     flex: 1,
     fontSize: 16,
     textAlign: 'center',
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   }
 });
 

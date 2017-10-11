@@ -53,7 +53,6 @@ export default class App extends Component<{}> {
           resizeMode='cover'
           style={styles.backdrop}>
           <View style={styles.overlay}>
-
             <Text style={styles.welcome}>
               You input {this.state.zip}.
             </Text>
@@ -84,9 +83,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#4D4D4D',
+    backgroundColor: '#4d4d4d',
   },
   overlay: {
+    flex: 1,
     paddingTop: 5,
     backgroundColor: 'black',
     opacity: 0.5,
@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     fontSize: 20,
     height: 40,
-    color: '#FFFFFF',
+    width: 150,
+    color: '#fff',
     textAlign: 'center',
   }
 });
