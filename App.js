@@ -17,13 +17,6 @@ import {
 import Forecast from './Forecast';
 
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 export default class App extends Component<{}> {
 
   constructor() {
@@ -49,23 +42,31 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./flowers.png')}
+        <Image
+          source={require('./flowers.png')}
           resizeMode='cover'
-          style={styles.backdrop}>
+          style={styles.backdrop}
+        >
           <View style={styles.overlay}>
-            <Text style={styles.welcome}>
-              You input {this.state.zip}.
-            </Text>
+            <View style={styles.row}>
+              <Text style={styles.mainText}>
+                Current weather for
+              </Text>
+              <View style={styles.zipContainer}>
+                {/* Enter zip code. */}
+                <TextInput
+                  style={[styles.zipCode, styles.mainText]}
+                  returnKeyType='go'
+                  onSubmitEditing={this._handleTextChange}
+                  underlineColorAndroid='transparent'
+                />
+              </View>
+            </View>
             {/* Weather forecast */}
             <Forecast
               main={this.state.forecast.main}
               description={this.state.forecast.description}
               temp={this.state.forecast.temp} />
-            {/* Enter zip code. */}
-            <TextInput
-              style={styles.input}
-              returnKeyType='go'
-              onSubmitEditing={this._handleTextChange} />
           </View>
         </Image>
       </View>
@@ -73,39 +74,49 @@ export default class App extends Component<{}> {
   }
 }
 
+const baseFontSize = 16;
+
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 30,
+  },
   // Background image.
   backdrop: {
     flex: 1,
     flexDirection: 'column',
   },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#4d4d4d',
-  },
   overlay: {
-    flex: 1,
     paddingTop: 5,
     backgroundColor: 'black',
     opacity: 0.5,
+    flexDirection: 'column',
     alignItems: 'center',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#FFFFFF',
+  row: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    alignItems: 'flex-start',
+    padding: 30,
   },
-  // TextInput to enter the zip code.
-  input: {
-    borderWidth: 2,
-    fontSize: 20,
-    height: 40,
-    width: 150,
-    color: '#fff',
-    textAlign: 'center',
-  }
+  zipContainer: {
+    height: baseFontSize + 10,
+    borderBottomColor: '#ddd',
+    borderBottomWidth: 1,
+    marginLeft: 5,
+    //marginTop: 3,
+  },
+  zipCode: {
+    flex: 1,
+    flexBasis: 1,
+    width: 80,
+    height: baseFontSize,
+    padding: 0,
+  },
+  mainText: {
+    fontSize: baseFontSize,
+    color: 'white',
+  },
 });
 
