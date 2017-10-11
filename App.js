@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import {
   Image,
+  ImageBackground,
   Platform,
   StyleSheet,
   Text,
@@ -72,7 +73,7 @@ export default class App extends Component<{}> {
 
     return (
       <View style={styles.container}>
-        <Image
+        <ImageBackground
           source={require('./flowers.png')}
           resizeMode='cover'
           style={styles.backdrop}
@@ -95,7 +96,7 @@ export default class App extends Component<{}> {
             {/* Weather forecast */}
             {content}
           </View>
-        </Image>
+        </ImageBackground>
       </View>
     );
   }
@@ -113,9 +114,10 @@ const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     flexDirection: 'column',
+    alignSelf: 'stretch',
   },
   overlay: {
-    paddingTop: 5,
+    paddingTop: 35,
     backgroundColor: 'black',
     opacity: 0.5,
     flexDirection: 'column',
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
   zipCode: {
     flex: 1,
     flexBasis: 1,
-    width: 80,
+    width: 100,
     height: baseFontSize,
     padding: 0,
   },
