@@ -24,12 +24,7 @@ export default class App extends Component<{}> {
     super();
     this.state = {
       zip: '',
-      // Mock data for weather forecast.
-      forecast: {
-        main: 'Clouds',
-        description: 'few clouds',
-        temp: 45.7
-      }
+      forecast: null,
     };
     this._handleTextChange = this._handleTextChange.bind(this);
   }
@@ -64,6 +59,17 @@ export default class App extends Component<{}> {
   }
 
   render() {
+
+    // Forecast content.
+    let content = null;
+    if (this.state.forecast !== null) {
+      content = <Forecast
+                  main={this.state.forecast.main}
+                  description={this.state.forecast.description}
+                  temp={this.state.forecast.temp}
+                />;
+    }
+
     return (
       <View style={styles.container}>
         <Image
@@ -87,10 +93,7 @@ export default class App extends Component<{}> {
               </View>
             </View>
             {/* Weather forecast */}
-            <Forecast
-              main={this.state.forecast.main}
-              description={this.state.forecast.description}
-              temp={this.state.forecast.temp} />
+            {content}
           </View>
         </Image>
       </View>
